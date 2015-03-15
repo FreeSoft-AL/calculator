@@ -7,8 +7,11 @@ $(document).ready(function () {
         var display = $('#display').attr('value');
         if (!isNaN(display + btn)) {
             display = display + btn;
-            $('#display').attr('value', display);
         }
+        else if (btn == 'ON/C') {
+			display = '';
+		};
+		$('#display').attr('value', display);
     });
 
 });
