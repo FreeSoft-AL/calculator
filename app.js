@@ -12,25 +12,27 @@ $(document).ready(function () {
             display = display + btn;
         }
         else if (btn == 'ON/C') {
-			display = '';
-		}
-		else if (btn == '+' || btn == '-' || btn == 'X' || btn == ':') {
-			else if (btn == 'X'){
-                           operator = '*'
-                        }
-                        else if (btn == ':'){
-                           operator = '/'
-                        }
-                        memory = display;
-			operator = 'btn';
-			display = '';
-		}
-		else if (btn == '=') {
-			var result = eval(memory + operator + display);
-			display = result;
-			memory = result;
-		}
-		$('#display').attr('value', display);
+            display = '';
+        }
+        else if (btn == '+' || btn == '-' || btn == 'X' || btn == ':') {
+            if (btn == 'X') {
+                operator = '*';
+            }
+            else if (btn == ':') {
+                operator = '/';
+            }
+            else {
+                operator = btn;
+            }
+            memory = display;
+            display = '';
+        }
+        else if (btn == '=') {
+            var result = eval(memory + operator + display);
+            display = result;
+            memory = result;
+        }
+        $('#display').attr('value', display);
     });
 
 });
