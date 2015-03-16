@@ -14,9 +14,15 @@ $(document).ready(function () {
         else if (btn == 'ON/C') {
 			display = '';
 		}
-		else if (btn == '+') {
-			memory = display;
-			operator = '+';
+		else if (btn == '+' || btn == '-' || btn == 'X' || btn == ':') {
+			else if (btn == 'X'){
+                           operator = '*'
+                        }
+                        else if (btn == ':'){
+                           operator = '/'
+                        }
+                        memory = display;
+			operator = 'btn';
 			display = '';
 		}
 		else if (btn == '=') {
