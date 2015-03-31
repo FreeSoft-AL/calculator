@@ -1,6 +1,13 @@
 
 $(document).ready(function () {
 
+    // Nese ekrani eshte shume i gjere, hape faqen brenda nje kornize te vogel.
+    if ($('body').width() > 450) {
+        var href = window.location.href;
+        $('body').html('<div id="frame"><iframe src="' + href + '" width="100%" height="450px" seamless="seamless" frameborder="0"></iframe></div>');
+        return;
+    }
+
     var memory = '';
     var operator = '';
     
