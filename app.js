@@ -9,11 +9,10 @@ $(document).ready(function () {
     }
 
     var memory = '';
-    var operator = '';
     
     $('.calc .ui-btn').on('click', function () {
         var btn = $(this).html();
-        console.log(btn);
+        console.log(memory);
         var display = $('#display').attr('value');
         if (!isNaN(display + btn)) {
             display = display + btn;
@@ -22,22 +21,23 @@ $(document).ready(function () {
             display = '';
         }
         else if (btn == '+' || btn == '-' || btn == 'X' || btn == ':') {
+            memory += display;
+            display = '';
             if (btn == 'X') {
-                operator = '*';
+                memory += '*';
             }
             else if (btn == ':') {
-                operator = '/';
+                memory += '/';
             }
             else {
-                operator = btn;
+                memory += btn;
             }
-            memory = display;
-            display = '';
         }
         else if (btn == '=') {
-            var result = eval(memory + operator + display);
+            var result = eval(memory + display);
             display = result;
-            memory = result;
+            //memory = result;
+            memory = '';
         }
         $('#display').attr('value', display);
     });
