@@ -39,6 +39,10 @@ $(document).ready(function () {
             //memory = result;
             memory = '';
         }
+        else if (btn == 'SQRT') {
+            display = Math.sqrt(display); 
+        };
+        
         $('#display').attr('value', display);
     });
 
